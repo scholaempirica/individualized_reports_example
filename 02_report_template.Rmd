@@ -1,0 +1,30 @@
+---
+title: '`r paste("Report for", params$Species)`'
+author: "Aleš Vomáčka"
+params:
+  Species: "setosa"
+date: "26 7 2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+iris_filtered <- subset(iris, Species == params$Species)
+```
+
+## Plants are apparently cool now
+
+The summary for the data of the `r params$Species` species is:
+
+```{r cars}
+summary(iris_filtered)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(iris_filtered$Sepal.Length, iris_filtered$Sepal.Width)
+```
